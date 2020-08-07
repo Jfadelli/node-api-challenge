@@ -1,14 +1,35 @@
-/*
-play this: https://www.youtube.com/watch?v=d-diB65scQU
+// code away!
+const express = require('express')
+const logger = require('./middleware/logger')
+const errorCatcher = require('./middleware/errorCatcher')
+const welcomeRouter = require('./routers/welcomeRouter')
+const projectsRouter = require('./routers/projectRouter')
+const actionsRouter = require('./routers/actionsRouter')
 
-Sing along:
+const api = express.Router();
 
-here's a little code I wrote, please read the README word for word, don't worry, you got this
-in every task there may be trouble, but if you worry you make it double, don't worry, you got this
-ain't got no sense of what is REST? just concentrate on learning Express, don't worry, you got this
-your file is getting way too big, bring a Router and make it thin, don't worry, be crafty
-there is no data on that route, just write some code, you'll sort it out… don't worry, just hack it…
-I need this code, but don't know where, perhaps should make some middleware, don't worry, just hack it
+//port & ip
+const server = express()
+const host = process.env.HOST || "0.0.0.0"
+const port = process.env.PORT || 4000
 
-Go code!
-*/
+//global
+server.use(express.json())
+server.use(logger.logger)
+
+//routes
+server.use('/api/', api)
+
+//subroutes
+api.use('/projects', projectsRouter);
+api.use('/actions', actionsRouter);
+
+//routes
+server.use('/', welcomeRouter)
+
+
+//misc
+server.use(errorCatcher.errorCatcher);
+server.listen(port, ()=>{
+    console.log(`\n*** Server listening on ${host}:${port}`)
+})
