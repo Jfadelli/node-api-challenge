@@ -39,14 +39,29 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
 -   [ ] Mention two parts of Express that you learned about this week.
-
+    1. Express is like React, but for the backend
+    2. With express we can...
+        1. build web applications.
+        2. serve Single Page Applications (SPAs).
+        3. build RESTful web services that work with JSON.
+        4. serve static content, like HTML files, images, audio files, PDFs, and more.
+        5. power real-time applications using technologies like Web Sockets or WebRTC.
+         
 -   [ ] Describe Middleware?
+    1. Middleware, sits between different components in the backend, and can be used as "functions" between actions and routes.
 
 -   [ ] Describe a Resource?
+    1. everything is a resource.
+    2. each resource is accessible via a unique URI.
+    3. resources can have multiple representations.
+    4. communication happens over a stateless protocol (HTTP).
+    5. resource management happens via HTTP methods.
 
 -   [ ] What can the API return to help clients know if a request was successful?
+    1. A status code, within the 200 range. 
 
 -   [ ] How can we partition our application into sub-applications?
+    1. With sub-routes and middleware.
 
 ## Minimum Viable Product
 
